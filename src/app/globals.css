@@ -1,0 +1,184 @@
+:root {
+  --background: #f0f8ff; /* Light blue */
+  --foreground: #2c3e50; /* Dark blue */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a; /* Dark gray */
+    --foreground: #ecf0f1; /* Light gray */
+  }
+}
+
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Add keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 0.9rem;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  a {
+    padding: 0.5rem 1rem;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Responsive styles for dropdown menu */
+@media (min-width: 769px) {
+  header button {
+    display: none;
+  }
+
+  header nav {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+
+  header button {
+    display: block;
+  }
+}
