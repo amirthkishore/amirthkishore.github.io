@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             alt="ak"
             style={{ height: '50px', borderRadius: '50%' }}
           />
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Amirth Kishore</h1>
+          {/* <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Amirth Kishore</h1> */}
           <nav style={{ display: isMenuOpen ? 'block' : undefined }}>
             <ul style={{
               display: 'flex',

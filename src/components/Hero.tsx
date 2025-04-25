@@ -1,7 +1,7 @@
 "use client";
 
-import ParticleBackground from './ParticleBackground';
 import styles from './Hero.module.css';
+import ParticleBackground from './ParticleBackground';
 
 export default function Hero() {
   const basePath = process.env.NODE_ENV === 'production' ? '/amirthkishore.github.io' : '';
@@ -13,10 +13,10 @@ export default function Hero() {
         <div className={styles.container}>
           <div className={styles.content}>
             <h1 className={styles.title}>
-              Welcome to My Portfolio
+              Hi, I'm Amirth Kishore
             </h1>
             <p className={styles.description}>
-              Hi, I'm Amirth Kishore, a passionate developer crafting modern web applications with a focus on innovation, performance, and user experience.
+              Software Developer specializing in MERN-stack development crafting modern web applications with a focus on innovation, performance, and user experience.
             </p>
             <div className={styles.buttonGroup}>
               <a href="#projects" className={styles.primaryButton}>

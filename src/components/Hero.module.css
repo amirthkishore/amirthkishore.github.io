@@ -46,6 +46,7 @@
   line-height: 1.8;
   margin-bottom: 2rem;
   color: var(--gray-800);
+  max-width: 600px;
 }
 
 .buttonGroup {
