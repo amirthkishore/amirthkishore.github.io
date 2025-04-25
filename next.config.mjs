@@ -1,7 +1,6 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // for static HTML export
+  output: 'export',
   assetPrefix: '/amirthkishore.github.io',
   images: {
     unoptimized: true,
@@ -9,4 +8,4 @@ const nextConfig = {
   basePath: '/amirthkishore.github.io',
 };
 
-module.exports = nextConfig;
+export default nextConfig;
