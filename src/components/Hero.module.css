@@ -10,6 +10,7 @@
   font-family: Arial, sans-serif;
   animation: slideIn 1s ease-in-out;
   background: transparent;
+  margin-top: -70px;
 }
 
 .container {
@@ -81,6 +82,8 @@
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   opacity: 0.9;
+  color: var(--gray-800);
+  background-color: var(--gray-200);
 }
 
 .socialLinks {
@@ -101,8 +104,8 @@
 }
 
 .profileImage {
-  width: 180px;
-  height: 180px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   animation: float 3s ease-in-out infinite;

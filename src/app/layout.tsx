@@ -77,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           position: 'relative',
           zIndex: 1
         }}>
-          <p>&copy; 2025 Amirth Kishore. All rights reserved.</p>
+            <p>&copy; <>{new Date().getFullYear()}</> Amirth Kishore. All rights reserved.</p>
         </footer>
       </body>
     </html>

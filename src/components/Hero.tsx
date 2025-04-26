@@ -23,18 +23,21 @@ export default function Hero() {
                 View Projects
               </a>
               <a href="#contact" className={styles.secondaryButton}>
-                Contact Me
+                Get In Touch
               </a>
             </div>
             <div className={styles.socialLinks}>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+              <a href="https://github.com/amirthkishore" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+              <a href="https://www.linkedin.com/in/amirth-kishore/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <i className="fab fa-linkedin"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <i className="fab fa-twitter"></i>
+              <a href="https://www.facebook.com/amirth.kishore.r" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+                <i className="fab fa-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/amirth_kishore/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+                <i className="fab fa-instagram"></i>
               </a>
             </div>
           </div>
