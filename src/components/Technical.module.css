@@ -1,170 +1,205 @@
 .technicalSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
-  color: var(--foreground);
-  padding: 5rem 2rem;
-  position: relative;
-  animation: fadeIn 1.5s ease-in-out;
-  background: transparent;
+  padding: 6rem 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .container {
-  max-width: 1200px;
-  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
-  text-align: center;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: bold;
+  text-align: center;
   margin-bottom: 1rem;
-  color: var(--foreground);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-}
-
-.title i {
-  font-size: 2.2rem;
-  color: var(--gray-800);
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .description {
+  text-align: center;
   font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 3rem;
   color: var(--gray-800);
-  max-width: 800px;
+  margin-bottom: 3rem;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  width: 100%;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid var(--gray-200);
-  padding: 2rem;
-  transition: all 0.3s ease;
+.skillsContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border-color: var(--gray-300);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.cardIcon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.card:hover .cardIcon {
-  transform: scale(1.1);
-  background: var(--gray-200);
-}
-
-.cardIcon i {
-  font-size: 1.8rem;
-  color: var(--foreground);
-}
-
-.cardTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--foreground);
-}
-
-.cardText {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--gray-800);
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.techIcons {
+.tabContainer {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  font-size: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  background: transparent;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   color: var(--gray-800);
-}
-
-.techIcons i {
+  cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--gray-200);
 }
 
-.techIcons i:hover {
-  transform: translateY(-3px);
+.tabButton i {
+  font-size: 1.2rem;
+}
+
+.tabButton:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.tabButton.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.skillItem {
+  animation: slideIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.skillInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skillName {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
   color: var(--foreground);
 }
 
-@keyframes fadeIn {
-  from {
+.skillIcon {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.skillLevel {
+  font-size: 0.9rem;
+  color: var(--gray-800);
+}
+
+.skillBar {
+  height: 8px;
+  background: var(--gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillProgress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%);
+  width: 0;
+  transition: width 1s ease;
+  border-radius: 4px;
+  position: relative;
+}
+
+.skillProgress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideIn {
+  0% {
     opacity: 0;
     transform: translateY(20px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @media (max-width: 768px) {
+  .technicalSection {
+    padding: 4rem 1.5rem;
+  }
+
   .title {
     font-size: 2rem;
   }
 
-  .title i {
-    font-size: 1.8rem;
-  }
-
   .description {
     font-size: 1.1rem;
-    padding: 0 1rem;
   }
 
-  .gridContainer {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
+  .tabButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 
-  .card {
+  .skillsContainer {
     padding: 1.5rem;
-  }
-
-  .cardIcon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .cardIcon i {
-    font-size: 1.5rem;
   }
 }
 
@@ -173,23 +208,20 @@
     font-size: 1.8rem;
   }
 
-  .title i {
-    font-size: 1.6rem;
-  }
-
   .description {
     font-size: 1rem;
   }
 
-  .cardTitle {
-    font-size: 1.3rem;
+  .tabButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 
-  .cardText {
+  .skillName {
     font-size: 1rem;
   }
 
-  .techIcons {
-    font-size: 1.3rem;
+  .skillIcon {
+    font-size: 1.1rem;
   }
 }

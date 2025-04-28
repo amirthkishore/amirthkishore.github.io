@@ -1,13 +1,44 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./globals.css";
+import styles from './Layout.module.css';
+import ParticleBackground from '../components/ParticleBackground';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (href) {
+      const element = document.querySelector(href);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -19,68 +50,42 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Amirth Kishore - Portfolio</title>
       </head>
       <body>
-        <header style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          backdropFilter: 'blur(10px)',
-          color: 'var(--foreground)',
-          padding: '1rem 2rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          position: 'fixed',
-          width: '100%',
-          top: 0,
-          zIndex: 1000,
-        }}>
-          <a href="/">
-            <img
-              src="/ak.png"
-              alt="ak"
-              style={{ height: '50px', borderRadius: '50%' }}
-            />
+        <ParticleBackground />
+        <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
+          <a href="#hero" className={styles.logo} onClick={handleNavClick}>
+            <img src="/ak.png" alt="AK Logo" width="40" height="40" />
+            <span>Amirth Kishore</span>
           </a>
-          {/* <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Amirth Kishore</h1> */}
-          <nav style={{ display: isMenuOpen ? 'block' : undefined }}>
-            <ul style={{
-              display: 'flex',
-              gap: '1.5rem',
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-            }}>
-              <li><a href="#technical">Technical</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+          <button 
+            className={styles.menuButton} 
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          </button>
+          <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
+            <ul className={styles.navList}>
+              <li>
+                <a href="#hero" className={styles.navLink} onClick={handleNavClick}>Home</a>
+              </li>
+              <li>
+                <a href="#technical" className={styles.navLink} onClick={handleNavClick}>Skills</a>
+              </li>
+              <li>
+                <a href="#experience" className={styles.navLink} onClick={handleNavClick}>Experience</a>
+              </li>
+              <li>
+                <a href="#projects" className={styles.navLink} onClick={handleNavClick}>Projects</a>
+              </li>
+              <li>
+                <a href="#contact" className={styles.navLink} onClick={handleNavClick}>Contact</a>
+              </li>
             </ul>
           </nav>
-          <button
-            onClick={toggleMenu}
-            className="mobile-menu-button"
-            style={{
-              backgroundColor: 'var(--gray-100)',
-              color: 'var(--foreground)',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            {isMenuOpen ? 'Close Menu' : 'Open Menu'}
-          </button>
         </header>
-        <main style={{ paddingTop: '74px' }}>{children}</main>
-        <footer style={{
-          backgroundColor: 'var(--gray-100)',
-          color: 'var(--foreground)',
-          padding: '1rem 0',
-          textAlign: 'center',
-          position: 'relative',
-          zIndex: 1
-        }}>
-          <p>&copy; <>{new Date().getFullYear()}</> Amirth Kishore. All rights reserved.</p>
-        </footer>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
