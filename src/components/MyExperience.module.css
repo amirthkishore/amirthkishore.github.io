@@ -1,0 +1,230 @@
+.experienceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 90vh;
+  color: var(--foreground);
+  padding: 3rem 2rem;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+  background: transparent;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: var(--foreground);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.title i {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--gray-200);
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.timelineItem:nth-child(odd) .timelineContent {
+  margin-left: auto;
+  padding-left: 3rem;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  margin-right: auto;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timelineContent {
+  position: relative;
+  width: calc(50% - 1rem);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.timelineContent:hover {
+  transform: translateY(-3px);
+  border-color: var(--gray-300);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timelineDot {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--foreground);
+  border: 2px solid var(--gray-200);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.timelineItem:nth-child(odd) .timelineDot {
+  left: calc(50% - 6px);
+}
+
+.timelineItem:nth-child(even) .timelineDot {
+  right: calc(50% - 6px);
+}
+
+.date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--foreground);
+  margin-bottom: 0.3rem;
+}
+
+.company {
+  font-size: 1rem;
+  color: var(--gray-800);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-800);
+  margin-bottom: 1rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.timelineItem:nth-child(even) .skills {
+  justify-content: flex-end;
+}
+
+.skill {
+  padding: 0.2rem 0.6rem;
+  background: var(--gray-100);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--foreground);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.skill:hover {
+  background: var(--gray-200);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .experienceSection {
+    padding: 2rem 1rem;
+  }
+
+  .timeline::before {
+    left: 1rem;
+  }
+
+  .timelineItem .timelineContent {
+    width: calc(100% - 2rem);
+    margin-left: 2rem !important;
+    padding: 1.2rem !important;
+    text-align: left !important;
+  }
+
+  .timelineItem .timelineDot {
+    left: 1rem !important;
+  }
+
+  .timelineItem:nth-child(even) .skills {
+    justify-content: flex-start;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .role {
+    font-size: 1.2rem;
+  }
+
+  .company {
+    font-size: 0.95rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceSection {
+    padding: 1.5rem 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .title i {
+    font-size: 1.6rem;
+  }
+
+  .timelineContent {
+    padding: 1rem !important;
+  }
+
+  .role {
+    font-size: 1.1rem;
+  }
+
+  .skill {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+  }
+}

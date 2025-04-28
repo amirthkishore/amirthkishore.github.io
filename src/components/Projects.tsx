@@ -3,7 +3,7 @@
 export default function Projects() {
   return (
     <section id="projects" style={{
-      padding: '4rem 2rem',
+      padding: '5rem 2rem',
       backgroundColor: 'var(--background)',
       color: 'var(--foreground)',
       textAlign: 'center',

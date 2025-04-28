@@ -33,11 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           top: 0,
           zIndex: 1000,
         }}>
-          <img
-            src="/ak.png"
-            alt="ak"
-            style={{ height: '50px', borderRadius: '50%' }}
-          />
+          <a href="/">
+            <img
+              src="/ak.png"
+              alt="ak"
+              style={{ height: '50px', borderRadius: '50%' }}
+            />
+          </a>
           {/* <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Amirth Kishore</h1> */}
           <nav style={{ display: isMenuOpen ? 'block' : undefined }}>
             <ul style={{
@@ -47,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               margin: 0,
               padding: 0,
             }}>
-              <li><a href="#about">About</a></li>
+              <li><a href="#technical">Technical</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -69,15 +71,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </button>
         </header>
         <main style={{ paddingTop: '74px' }}>{children}</main>
-        <footer style={{ 
-          backgroundColor: 'var(--gray-100)', 
-          color: 'var(--foreground)', 
-          padding: '1rem 0', 
+        <footer style={{
+          backgroundColor: 'var(--gray-100)',
+          color: 'var(--foreground)',
+          padding: '1rem 0',
           textAlign: 'center',
           position: 'relative',
           zIndex: 1
         }}>
-            <p>&copy; <>{new Date().getFullYear()}</> Amirth Kishore. All rights reserved.</p>
+          <p>&copy; <>{new Date().getFullYear()}</> Amirth Kishore. All rights reserved.</p>
         </footer>
       </body>
     </html>

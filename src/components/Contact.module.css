@@ -1,0 +1,131 @@
+.contactSection {
+  padding: 5rem 2rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-align: center;
+  animation: zoomIn 1.5s ease-in-out;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: var(--gray-800);
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--gray-200);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.socialIcon {
+  color: var(--foreground);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.emailButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.emailButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .contactContainer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .emailButton {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
