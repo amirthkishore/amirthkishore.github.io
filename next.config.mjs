@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/amirthkishore.github.io' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/amirthkishore.github.io/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   trailingSlash: true,
   // Basic optimizations
   optimizeFonts: true,
