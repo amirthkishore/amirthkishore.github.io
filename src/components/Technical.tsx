@@ -5,12 +5,12 @@ import styles from './Technical.module.css';
 
 const skills = {
   languages: [
-    { name: 'JavaScript', level: 90, icon: 'fab fa-js' },
-    { name: 'TypeScript', level: 85, icon: 'fab fa-typescript' },
-    { name: 'C#', level: 80, icon: 'fab fa-microsoft' }
+    { name: 'JavaScript', level: 80, icon: 'fab fa-js' },
+    { name: 'TypeScript', level: 75, icon: 'fab fa-typescript' },
+    { name: 'C#', level: 50, icon: 'fab fa-microsoft' }
   ],
   frontend: [
-    { name: 'React.js', level: 90, icon: 'fab fa-react' },
+    { name: 'React.js', level: 80, icon: 'fab fa-react' },
     { name: 'Next.js', level: 85, icon: 'fas fa-n' },
     { name: 'Angular', level: 75, icon: 'fab fa-angular' },
     { name: 'HTML5/CSS3', level: 90, icon: 'fab fa-html5' }
@@ -22,12 +22,16 @@ const skills = {
   ],
   database: [
     { name: 'MongoDB', level: 85, icon: 'fas fa-database' },
-    { name: 'SQL', level: 80, icon: 'fas fa-table' }
+    // { name: 'SQL', level: 80, icon: 'fas fa-table' }
   ],
   tools: [
     { name: 'Git', level: 90, icon: 'fab fa-git-alt' },
-    { name: 'Docker', level: 75, icon: 'fab fa-docker' },
-    { name: 'AWS', level: 70, icon: 'fab fa-aws' }
+    { name: 'GitHub', level: 90, icon: 'fab fa-github' },
+    { name: 'Postman', level: 80, icon: 'fas fa-paper-plane' },
+    { name: 'Figma', level: 75, icon: 'fas fa-paint-brush' },
+    { name: 'Sass', level: 70, icon: 'fab fa-sass' },
+    { name: 'Bootstrap', level: 70, icon: 'fab fa-bootstrap' },
+    { name: 'Ant Design', level: 70, icon: 'fab fa-react' },
   ]
 };
 
@@ -114,7 +118,7 @@ export default function Technical() {
           Proficient in modern web technologies, focusing on building scalable and efficient applications
         </p>
 
-        <div className={styles.skillsContainer}></div>
+        <div className={styles.skillsContainer}>
           <div className={styles.tabContainer}>
             <button
               className={`${styles.tabButton} ${activeTab === 'languages' ? styles.active : ''}`}
@@ -152,6 +156,7 @@ export default function Technical() {
               <span>Tools</span>
             </button>
           </div>
+        </div>
 
           <div className={styles.skillsList}>
             {skills[activeTab as keyof typeof skills].map((skill, index) => (

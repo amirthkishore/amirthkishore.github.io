@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  const basePath = process.env.NODE_ENV === 'production' ? '/amirthkishore.github.io' : '';
+  const basePath = process.env.NODE_ENV === 'production' ? '' : '';
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Hero() {
           </div>
           <div className={styles.imageContainer}>
             <img
-              src={`${basePath}/profile.jpg`}
+              src={`${basePath}/profile.png`}
               alt="Amirth Kishore"
               className={styles.profileImage}
               loading="eager"

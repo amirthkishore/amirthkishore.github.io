@@ -24,7 +24,7 @@ const experiences: Experience[] = [
       "Optimized application performance resulting in 40% faster load times",
       "Led the migration to TypeScript improving code reliability"
     ],
-    skills: ["Node.js", "React.js", "Express.js", "TypeScript", "SCSS"]
+    skills: ["React.js", "Node.js", "Express.js", "TypeScript", "SCSS", "MongoDB", "Microservices", "Redis", "Handlebars"]
   },
   {
     date: "May 2021 - July 2023",

@@ -18,10 +18,10 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     description: "A modern portfolio website built with Next.js 14, React, and Three.js. Features interactive 3D particles, dark mode support, and responsive design.",
-    image: "/projects/portfolio.png",
+    image: "/portfolio.png",
     tech: ["Next.js", "React", "TypeScript", "Three.js", "CSS Modules"],
     githubUrl: "https://github.com/amirthkishore/amirthkishore.github.io",
-    liveUrl: "https://amirthkishore.github.io",
+    liveUrl: "https://amirthkishore.netlify.app/",
     features: [
       "Interactive 3D particle background with Three.js",
       "Dark mode with system preference detection",
@@ -30,7 +30,7 @@ const projects: Project[] = [
       "TypeScript for type safety"
     ]
   },
-  {
+  /* {
     title: "E-Commerce Platform",
     description: "Full-stack e-commerce solution with modern UI/UX, real-time cart updates, and secure payment integration.",
     image: "/projects/ecommerce.png",
@@ -59,7 +59,7 @@ const projects: Project[] = [
       "Task filtering and sorting",
       "Progress tracking"
     ]
-  }
+  } */
 ];
 
 export default function Projects() {
